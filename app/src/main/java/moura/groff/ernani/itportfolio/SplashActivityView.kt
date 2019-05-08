@@ -19,6 +19,6 @@ class SplashActivityView : AppCompatActivity(), Runnable {
     override fun run() {
         startActivity(Intent(this, MainActivityView::class.java))
         finish()
-        //TESTE DE COMMIT
+        //teste aletorio apenas para aprender git
     }
 }

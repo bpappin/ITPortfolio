@@ -6,7 +6,9 @@ import android.arch.lifecycle.ViewModel
 import android.support.v4.app.FragmentManager
 import moura.groff.ernani.itportfolio.R
 import moura.groff.ernani.itportfolio.contact.ContactView
+import moura.groff.ernani.itportfolio.hobbies.HobbiesView
 import moura.groff.ernani.itportfolio.portfolio_app.PortfolioMainView
+import moura.groff.ernani.itportfolio.technical_abilities.AbilitiesView
 
 class MainFragmentViewModel : ViewModel() {
 
@@ -61,7 +63,7 @@ class MainFragmentViewModel : ViewModel() {
         fm.beginTransaction()
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .addToBackStack(BS_TECHABILITIES)
-                .replace(R.id.flMainContent, PortfolioMainView())
+                .replace(R.id.flMainContent, AbilitiesView())
                 .commit()
     }
 
@@ -77,7 +79,7 @@ class MainFragmentViewModel : ViewModel() {
         fm.beginTransaction()
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .addToBackStack(BS_HOBBIES)
-                .replace(R.id.flMainContent, PortfolioMainView())
+                .replace(R.id.flMainContent, HobbiesView())
                 .commit()
     }
 

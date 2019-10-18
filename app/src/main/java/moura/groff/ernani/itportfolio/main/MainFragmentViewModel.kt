@@ -1,13 +1,14 @@
 package moura.groff.ernani.itportfolio.main
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.support.v4.app.FragmentManager
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.fragment.app.FragmentManager
 import moura.groff.ernani.itportfolio.R
 import moura.groff.ernani.itportfolio.contact.ContactView
 import moura.groff.ernani.itportfolio.hobbies.HobbiesView
 import moura.groff.ernani.itportfolio.portfolio_app.PortfolioMainView
+import moura.groff.ernani.itportfolio.portfolio_game.GameMainView
 import moura.groff.ernani.itportfolio.technical_abilities.AbilitiesView
 
 class MainFragmentViewModel : ViewModel() {
@@ -55,7 +56,7 @@ class MainFragmentViewModel : ViewModel() {
         fm.beginTransaction()
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .addToBackStack(BS_GAME)
-                .replace(R.id.flMainContent, PortfolioMainView())
+                .replace(R.id.flMainContent, GameMainView())
                 .commit()
     }
 

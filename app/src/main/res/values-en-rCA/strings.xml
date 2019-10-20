@@ -2,9 +2,14 @@
     <string name="app_name">ITPortfolio</string>
     <string name="txt_name">NAME</string>
     <string name="chat">Chat</string>
-    <string name="txt_my_name">Ernani Guilherme Groff Moura</string>
     <string name="txt_contact">Contact</string>
     <string name="desc_gru">App of Guarulhos Airport where I used an API of departures and arrivals of flights to show in the app, used  Waze API and Google Maps API to map the user route to the airport, created a custom map of the airport where the user can navigate and find all the stores in the app.</string>
     <string name="title_gru">GRU AIRPORT</string>
     <string name="description">Description</string>
+    <string name="app_portfolio">App Portfolio</string>
+    <string name="cd_msg_open_video">Press to open the video.</string>
+    <string name="game_portfolio">Game Portfolio</string>
+    <string name="technical_abilities">Technical abilities</string>
+    <string name="how_i_work">How I work</string>
+    <string name="hobbies">Hobbies</string>
 </resources>

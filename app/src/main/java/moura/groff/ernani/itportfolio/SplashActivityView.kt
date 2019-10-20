@@ -6,6 +6,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import moura.groff.ernani.itportfolio.main.MainActivityView
 
+
 class SplashActivityView : AppCompatActivity(), Runnable {
 
     override fun onCreate(savedInstanceState: Bundle?) {

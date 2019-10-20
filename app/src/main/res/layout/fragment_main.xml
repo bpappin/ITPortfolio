@@ -22,8 +22,13 @@
                 android:id="@+id/ivPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/eu1" />
+                android:scaleType="centerCrop" />
+
+            <ProgressBar
+                android:id="@+id/pbLoaderPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
 
         </androidx.cardview.widget.CardView>
 
@@ -108,7 +113,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="App Portfolio" />
+                        android:text="@string/app_portfolio" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -142,7 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Game Portfolio" />
+                        android:text="@string/game_portfolio" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -189,7 +194,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Technical abilities" />
+                        android:text="@string/technical_abilities" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -223,7 +228,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="How I work" />
+                        android:text="@string/how_i_work" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -270,7 +275,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Hobbies" />
+                        android:text="@string/hobbies" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

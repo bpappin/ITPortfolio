@@ -2,9 +2,14 @@
     <string name="app_name">ITPortfolio</string>
     <string name="txt_name">NOME</string>
     <string name="chat">Chat</string>
-    <string name="txt_my_name">Ernani Guilherme Groff Moura</string>
     <string name="txt_contact">Contato</string>
     <string name="desc_gru">App do aeroporto de Guarulhos onde eu usei uma API de chegadas e partidas de vôos para mostrar no app, usei a API do Waze e do Google Maps para traçar a rota do usuário até o aeroporto, fiz um mapa customizado onde o usuário pode navegar e procurar pelas lojas do aeroporto.</string>
     <string name="title_gru">GRU AIRPORT</string>
     <string name="description">Descrição</string>
+    <string name="app_portfolio">App Portfolio</string>
+    <string name="cd_msg_open_video">Aperte para abrir o vídeo.</string>
+    <string name="game_portfolio">Game Portfolio</string>
+    <string name="technical_abilities">Habilidades Técnicas</string>
+    <string name="how_i_work">Como eu trabalho</string>
+    <string name="hobbies">Hobbies</string>
 </resources>

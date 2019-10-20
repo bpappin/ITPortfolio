@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_portfolio_main.*
 import moura.groff.ernani.itportfolio.R
-import moura.groff.ernani.itportfolio.portfolio_app.adapter.PortfolioAppPagerAdapter
+import moura.groff.ernani.itportfolio.portfolio_app.adapter.PortfolioPagerAdapter
 
-class PortfolioMainView : Fragment() {
+class PortfolioMainView (private val type: String) : Fragment() {
 
     private lateinit var viewModel: PortfolioMainViewModel
 
@@ -22,22 +22,23 @@ class PortfolioMainView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "App Portfolio"
+        (activity as AppCompatActivity).supportActionBar?.title = "Portfolio"
 
         viewModel = ViewModelProviders.of(this).get(PortfolioMainViewModel::class.java)
-        viewModel.initModel()
+        viewModel.initModel(type)
 
-        vpContent.adapter = fragmentManager?.let { PortfolioAppPagerAdapter(it) }
+        vpContent.adapter = fragmentManager?.let { PortfolioPagerAdapter(it) }
         tlDots.setupWithViewPager(vpContent, true)
 
         configObservers()
     }
 
     fun configObservers() {
-        viewModel.listAppPortfolio.observe(this, Observer {
+        /* When receive data, update the app/game list porfolio */
+        viewModel.listPortfolio.observe(this, Observer {
             if (it != null) {
-                (vpContent.adapter as PortfolioAppPagerAdapter).setList(it)
-                (vpContent.adapter as PortfolioAppPagerAdapter).notifyDataSetChanged()
+                (vpContent.adapter as PortfolioPagerAdapter).setList(it)
+                (vpContent.adapter as PortfolioPagerAdapter).notifyDataSetChanged()
             }
         })
 

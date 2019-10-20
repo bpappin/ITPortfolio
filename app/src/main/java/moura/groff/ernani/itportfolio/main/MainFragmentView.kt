@@ -1,13 +1,13 @@
 package moura.groff.ernani.itportfolio.main
 
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_main.*
 import moura.groff.ernani.itportfolio.R
 
@@ -24,7 +24,7 @@ class MainFragmentView : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = resources.getString(R.string.app_name)
 
         viewModel = ViewModelProviders.of(this).get(MainFragmentViewModel::class.java)
-        viewModel.initModel()
+        viewModel.initModel(ivPhoto)
 
         configView()
         configObservers()
@@ -32,30 +32,31 @@ class MainFragmentView : Fragment() {
 
     fun configView() {
         cvApp.setOnClickListener {
-            viewModel.openAppPortfolio(fragmentManager!!)
+            viewModel.openPortfolio(fragmentManager, "App")
         }
 
         cvGame.setOnClickListener {
-            viewModel.openGamePortfolio(fragmentManager!!)
+            viewModel.openPortfolio(fragmentManager, "Game")
         }
 
         cvTechAbilities.setOnClickListener {
-            viewModel.openTechnicalAbilities(fragmentManager!!)
+            viewModel.openTechnicalAbilities(fragmentManager)
         }
 
         cvHowIWork.setOnClickListener {
-            viewModel.openHowIWork(fragmentManager!!)
+            viewModel.openHowIWork(fragmentManager)
         }
 
         cvHobbies.setOnClickListener {
-            viewModel.openHobbies(fragmentManager!!)
+            viewModel.openHobbies(fragmentManager)
         }
 
         cvChat.setOnClickListener {
-            viewModel.openContact(fragmentManager!!)
+            viewModel.openContact(fragmentManager)
         }
     }
 
+    // WHEN RECEIVE THE RESULTS AND CHANGES FROM SERVER, UPDATE THE VIEW
     fun configObservers() {
         viewModel.name.observe(this, Observer {
             tvName.text = it
@@ -70,6 +71,14 @@ class MainFragmentView : Fragment() {
                 pbLoader.visibility = View.VISIBLE
             } else {
                 pbLoader.visibility = View.GONE
+            }
+        })
+
+        viewModel.showLoaderPhoto.observe(this, Observer {
+            if (it ?: false) {
+                pbLoaderPhoto.visibility = View.VISIBLE
+            } else {
+                pbLoaderPhoto.visibility = View.GONE
             }
         })
     }

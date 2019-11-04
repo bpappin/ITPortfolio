@@ -23,7 +23,7 @@ class MainFragmentAndroidTest {
 
     @Test
     fun fullProfile() {
-        FirebaseApp.initializeApp(context);
+        FirebaseApp.initializeApp(context)
 
         val fullProfile = Profile()
         fullProfile.name = "Ernani Guilherme Groff Moura"

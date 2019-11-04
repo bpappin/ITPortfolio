@@ -2,6 +2,7 @@ package moura.groff.ernani.itportfolio.portfolio_app
 
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import moura.groff.ernani.itportfolio.entities.Portfolio
 
 typealias CallbackAppPortfolio = (List<Portfolio>) -> Unit
@@ -16,20 +17,23 @@ class PortfolioMainModel {
                     if (it.isSuccessful) {
                         /* Verify if type is game or app to define the subcollection get on the database */
                         val subCollectionName = if (type == "Game") "game_portfolio" else "app_portfolio"
-                        database.collection("profiles").document(it.result!!.documents[0].id)
-                                .collection(subCollectionName).get()
-                                .addOnCompleteListener() {
-                                    if (it.isSuccessful) {
-                                        val list: MutableList<Portfolio> = mutableListOf()
-                                        for (item in it.result!!) {
-                                            list.add(item.toObject(Portfolio::class.java))
+                        if (it.result != null) {
+                            val docId = (it.result as QuerySnapshot).documents[0].id
+                            database.collection("profiles").document(docId)
+                                    .collection(subCollectionName).get()
+                                    .addOnCompleteListener {
+                                        if (it.isSuccessful) {
+                                            val list: MutableList<Portfolio> = mutableListOf()
+                                            it.result?.forEach {
+                                                list.add(it.toObject(Portfolio::class.java))
+                                            }
+                                            callback(list)
                                         }
-                                        callback(list)
                                     }
-                                }
-                                .addOnFailureListener {
-                                    Log.i("PortfolioMainModel", "FAILURE: " + it.message)
-                                }
+                                    .addOnFailureListener {
+                                        Log.i("PortfolioMainModel", "FAILURE: " + it.message)
+                                    }
+                        }
                     }
                 }
     }

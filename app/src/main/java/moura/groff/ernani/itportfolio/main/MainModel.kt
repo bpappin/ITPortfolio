@@ -28,8 +28,8 @@ class MainModel {
                 .get()
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        for (item in it.result!!) {
-                            callback(item.toObject(Profile::class.java))
+                        it.result?.forEach {
+                            callback(it.toObject(Profile::class.java))
                         }
                     }
                 }
